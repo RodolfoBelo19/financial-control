@@ -1,13 +1,14 @@
 import './App.css';
-import { Main } from './main/index.tsx';
+import { Home } from './pages/home/index.tsx';
+import { Welcome } from './pages/welcome/index.tsx';
+import { useState } from 'react';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <Main />
+      {isLoggedIn ? <Home /> : <Welcome setIsLoggedIn={setIsLoggedIn} />}
     </>
   );
 }
